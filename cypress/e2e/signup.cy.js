@@ -7,7 +7,7 @@ describe("Signup", () => {
         
     })
 
-    it("with unregistered data", () => {
+    it("Signup with unregistered data", () => {
         homePage.goToHomePage()
         homePage.verifyHomePageAppears()
         homePage.clickSignUpMenu()
@@ -16,7 +16,7 @@ describe("Signup", () => {
         homePage.verifyEmptyCredsErrorMessageAppears()
     })
 
-    it("with empty data", () => {
+    it("SignUp with Blank Username Password", () => {
         homePage.goToHomePage()
         homePage.verifyHomePageAppears()
         homePage.clickSignUpMenu()
@@ -25,7 +25,7 @@ describe("Signup", () => {
         homePage.verifyEmptyCredsErrorMessageAppears()
     })
 
-    it("with registered data", () => {
+    it("SignUp with registered data", () => {
         homePage.goToHomePage()
         homePage.verifyHomePageAppears()
         homePage.clickSignUpMenu()

@@ -1,36 +1,34 @@
-const homePage = require('../support/pages/home-page/homePage')
+const homePage = require('../support/pages/home-page/homePage');
+const loginPage = require('../support/pages/Login/loginPage');
+const data = require('../support/pages/staticdata');
+
 
 describe("Login", () => {
     beforeEach(() => {
-        // pre step
+        homePage.goToHomePage()
+        homePage.verifyHomePageAppears()
         
-        
     })
 
-    it("should successfully log in with valid Username Password", () => {
-        homePage.goToHomePage()
-        homePage.verifyHomePageAppears()
-        homePage.clickLoginMenu()
-        homePage.verifyLoginModalAppears()
-        homePage.Login('', 'Isnani123')
-        homePage.verifyEmptyCredsErrorMessageAppears()
-    })
-    it("should successfully log in with invalid Username Password", () => {
-        homePage.goToHomePage()
-        homePage.verifyHomePageAppears()
-        homePage.clickLoginMenu()
-        homePage.verifyLoginModalAppears()
-        homePage.Login('', 'Isnani1234')
-        homePage.verifyEmptyCredsErrorMessageAppears()
+    it("Login with unregistered data", () => {
+        loginPage.clickLogInMenu()
+        loginPage.verifyLogInModalAppears()
+        loginPage.logIn(data.user_data.noregistered_username, data.user_data.noregistered_password)
+        loginPage.verifyUsernotExistsErrorMessageAppears()
     })
 
-    it("with empty data", () => {
-        homePage.goToHomePage()
-        homePage.verifyHomePageAppears()
-        homePage.clickLoginMenu()
-        homePage.verifyLoginModalAppears()
-        homePage.Login('', 'isnani123')
-        homePage.verifyEmptyCredsErrorMessageAppears()
+    it("Login with blank username password", () => {
+        loginPage.clickLogInMenu()
+        loginPage.verifyLogInModalAppears()
+        loginPage.logIn('', '')
+        loginPage.verifyEmptyCredsErrorMessageAppears()
     })
 
+    it("Login with registered data", () => {
+        loginPage.clickLogInMenu()
+        loginPage.verifyLogInModalAppears()
+        loginPage.logIn(data.user_data.registered_username, data.user_data.registered_password)
+        loginPage.verifynameofUser()
+        loginPage.verifyLogout()
+    })
 })
