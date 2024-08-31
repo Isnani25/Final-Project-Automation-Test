@@ -12,7 +12,7 @@ describe("Signup", () => {
         homePage.verifyHomePageAppears()
         homePage.clickSignUpMenu()
         homePage.verifySignUpModalAppears()
-        homePage.signUp('', 'jojo123')
+        homePage.signUp('', 'Isnani1234')
         homePage.verifyEmptyCredsErrorMessageAppears()
     })
 
@@ -21,7 +21,7 @@ describe("Signup", () => {
         homePage.verifyHomePageAppears()
         homePage.clickSignUpMenu()
         homePage.verifySignUpModalAppears()
-        homePage.signUp('', 'jojo123')
+        homePage.signUp('', 'Isnani123')
         homePage.verifyEmptyCredsErrorMessageAppears()
     })
 
@@ -30,7 +30,7 @@ describe("Signup", () => {
         homePage.verifyHomePageAppears()
         homePage.clickSignUpMenu()
         homePage.verifySignUpModalAppears()
-        homePage.signUp('random', 'jojo123')
+        homePage.signUp('random', 'Isnani123')
         homePage.verifySignUpSuccessMessageAppears()
     })
 })

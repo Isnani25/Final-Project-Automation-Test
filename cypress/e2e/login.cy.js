@@ -7,30 +7,30 @@ describe("Login", () => {
         
     })
 
-    it("should successfully log in with valid credentials", () => {
+    it("should successfully log in with valid Username Password", () => {
         homePage.goToHomePage()
         homePage.verifyHomePageAppears()
-        homePage.clickSignUpMenu()
-        homePage.verifySignUpModalAppears()
-        homePage.signIn('', 'Isnani123')
+        homePage.clickLoginMenu()
+        homePage.verifyLoginModalAppears()
+        homePage.Login('', 'Isnani123')
+        homePage.verifyEmptyCredsErrorMessageAppears()
+    })
+    it("should successfully log in with invalid Username Password", () => {
+        homePage.goToHomePage()
+        homePage.verifyHomePageAppears()
+        homePage.clickLoginMenu()
+        homePage.verifyLoginModalAppears()
+        homePage.Login('', 'Isnani1234')
         homePage.verifyEmptyCredsErrorMessageAppears()
     })
 
     it("with empty data", () => {
         homePage.goToHomePage()
         homePage.verifyHomePageAppears()
-        homePage.clickSignUpMenu()
-        homePage.verifySignUpModalAppears()
-        homePage.signUp('', 'jojo123')
+        homePage.clickLoginMenu()
+        homePage.verifyLoginModalAppears()
+        homePage.Login('', 'isnani123')
         homePage.verifyEmptyCredsErrorMessageAppears()
     })
 
-    it("with registered data", () => {
-        homePage.goToHomePage()
-        homePage.verifyHomePageAppears()
-        homePage.clickSignUpMenu()
-        homePage.verifySignUpModalAppears()
-        homePage.signUp('random', 'jojo123')
-        homePage.verifySignUpSuccessMessageAppears()
-    })
 })
